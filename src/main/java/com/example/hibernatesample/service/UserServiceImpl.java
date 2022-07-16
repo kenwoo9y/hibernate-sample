@@ -17,7 +17,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        this.userRepository.saveUser(user);
+        this.userRepository.save(user);
     }
 
     @Override
