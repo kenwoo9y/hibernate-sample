@@ -4,3 +4,8 @@ spring:
         url: jdbc:postgresql://localhost:5432/sample_db?currentSchema=sample_sc&ssl=false
         username: admin
         password: password
+    jpa:
+        database-platform: org.hibernate.dialect.PostgreSQLDialect
+        hibernate:
+            ddl-auto: update
+        show-sql: true
