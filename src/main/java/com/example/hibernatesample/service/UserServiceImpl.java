@@ -28,7 +28,7 @@ public class UserServiceImpl implements UserService {
     @Override
     @Transactional
     public void changePassword(User user) {
-        this.userRepository.changePassword(user);
+        this.userRepository.changePassword(user.getId(), user.getPassword());
     }
 
     @Override
