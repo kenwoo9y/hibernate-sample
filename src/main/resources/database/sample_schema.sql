@@ -1,5 +1,5 @@
 create table sample_sc.user (
-    id varchar(80) not null primary key,
+    id serial not null primary key,
     user_name varchar (80),
     password varchar(80),
     email varchar(80),

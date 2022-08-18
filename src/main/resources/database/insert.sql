@@ -1,8 +1,7 @@
-insert into sample_sc.user values(
-    '12345',
+insert into sample_sc.user (user_name, password, email, first_name, last_name, created_time, updated_time) values(
     'TaroYamada',
     'zaq12wsx',
-    'taroyamada@example.com',
+    'taro.yamada@example.com',
     '太郎',
     '山田',
     current_timestamp,
