@@ -1,40 +1,45 @@
 package com.example.hibernatesample.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import com.example.hibernatesample.model.User;
 import com.example.hibernatesample.repository.UserRepository;
 
-@Service
 public class UserServiceImpl implements UserService {
     @Autowired
     private UserRepository userRepository;
 
     @Override
-    public void saveUser(User user) {
+    public void save(User user) {
         this.userRepository.save(user);
     }
 
     @Override
-    public Optional<User> findByUserId(String userId) {
-        return this.userRepository.findByUserId(userId);
-    };
+    public Optional<User> findById(Long userId) {
+        return this.userRepository.findById(userId);
+    }
 
     @Override
-    @Transactional
-    public void changePassword(User user) {
-        this.userRepository.changePassword(user.getId(), user.getPassword());
+    public List<User> findAll() {
+        return this.userRepository.findAll();
     }
 
     @Override
     @Transactional
-    public void deleteUser(String userId) {
-        this.userRepository.deleteUser(userId);
+    public void updatePassword(Long userId, String password) {
+        this.userRepository.updatePassword(userId, password);
     }
+
+    @Override
+    @Transactional
+    public void deleteById(Long userId) {
+        this.userRepository.deleteById(userId);
+    }
+
     
 }

@@ -22,27 +22,32 @@ public class UserController {
     private UserService userService;
     
     @PostMapping
-    public ResponseEntity<?> saveUser(@RequestBody User user) {
-        userService.saveUser(user);
+    public ResponseEntity<?> save(@RequestBody User user) {
+        userService.save(user);
         
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
     @GetMapping("/{userId}")
-    public ResponseEntity<?> findByUserId(@PathVariable("userId") String userId) {
-        return new ResponseEntity<>(userService.findByUserId(userId), HttpStatus.OK);
+    public ResponseEntity<?> findById(@PathVariable("userId") Long userId) {
+        return new ResponseEntity<>(userService.findById(userId), HttpStatus.OK);
     }
 
-    @PutMapping("/change")
-    public ResponseEntity<?> changePassword(@RequestBody User user) {
-        userService.changePassword(user);
+    @GetMapping
+    public ResponseEntity<?> findAll() {
+        return new ResponseEntity<>(userService.findAll(), HttpStatus.OK);
+    }
+
+    @PutMapping("/update/{userId}")
+    public ResponseEntity<?> updatePassword(@PathVariable("userId") Long userId, @RequestBody User user) {
+        userService.updatePassword(userId, user.getPassword());
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @DeleteMapping("/delete/{userId}")
-    public ResponseEntity<?> deleteUser(@PathVariable("userId") String userId) {
-        userService.deleteUser(userId);
+    public ResponseEntity<?> deleteById(@PathVariable("userId") Long userId) {
+        userService.deleteById(userId);
         
         return new ResponseEntity<>(HttpStatus.OK);
     }

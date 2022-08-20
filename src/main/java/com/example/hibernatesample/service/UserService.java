@@ -1,15 +1,18 @@
 package com.example.hibernatesample.service;
 
+import java.util.List;
 import java.util.Optional;
 
 import com.example.hibernatesample.model.User;
 
 public interface UserService {
-    void saveUser(User user);
+    void save(User user);
     
-    Optional<User> findByUserId(String userId);
+    Optional<User> findById(Long userId);
 
-    void changePassword(User user);
+    List<User> findAll();
 
-    void deleteUser(String userId);
+    void updatePassword(Long userId, String password);
+
+    void deleteById(Long userId);
 }
