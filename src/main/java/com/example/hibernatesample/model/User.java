@@ -23,19 +23,19 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "username", unique = true, nullable = false, length = 80)
+    @Column(name = "user_name", unique = true, nullable = false, length = 80)
     private String userName;
 
-    @Column(name = "password", nullable = false, length = 80)
+    @Column(name = "password", nullable = true, length = 80)
     private String password;
 
-    @Column(name = "email", nullable = false, length = 80)
+    @Column(name = "email", nullable = true, length = 80)
     private String email;
 
-    @Column(name = "first_name", nullable=false, length=40)
+    @Column(name = "first_name", nullable=true, length=40)
     private String firstName;
 
-    @Column(name = "last_name", nullable=false, length=40)
+    @Column(name = "last_name", nullable=true, length=40)
     private String lastName;
 
     @Column(name = "created_time", nullable = false)
