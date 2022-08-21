@@ -12,7 +12,7 @@ public interface UserService {
 
     List<User> findAll();
 
-    void updatePassword(Long userId, String password);
+    void updatePassword(User user);
 
     void deleteById(Long userId);
 }

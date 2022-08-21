@@ -40,7 +40,8 @@ public class UserController {
 
     @PutMapping("/update/{userId}")
     public ResponseEntity<?> updatePassword(@PathVariable("userId") Long userId, @RequestBody User user) {
-        userService.updatePassword(userId, user.getPassword());
+        user.setId(userId);
+        userService.updatePassword(user);
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
